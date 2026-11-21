@@ -7,6 +7,7 @@ import MainLayout from './layouts/MainLayout'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Article from './pages/Article/Article'
+import NotFoundPage from './pages/NotFound/NotFoundPage'
 
 function App() {
 
@@ -24,10 +25,11 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/', element: <MainLayout />, children: [
-        { path: '/', element: <Home posts={items} /> },
+        { index: true, element: <Home posts={items} /> },
         { path: 'blog', element: <Blog posts={items} /> },
         { path: 'about', element: <About /> },
-        { path: 'blog/:id', element: <Article posts={items} /> }
+        { path: 'blog/:id', element: <Article posts={items} /> },
+        { path: '*', element: <NotFoundPage /> }
       ]
     }
   ],
