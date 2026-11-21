@@ -2,7 +2,7 @@ import React from 'react'
 import CapsulLink from '../../comonents/Tab/CapsulLink'
 import ArticleCard from '../../comonents/ArticleCard/ArticleCard'
 
-export default function Home() {
+export default function Home({posts}) {
   return (
     <>
       <section className='pt-16 mt-20 bg-neutral-950 text-amber-50 bg-[linear-gradient(rgba(128,128,128,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(128,128,128,0.2)_1px,transparent_1px)] bg-size-[60px_60px] min-h-screen'>
@@ -18,7 +18,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='pt-16 bg-neutral-950 text-amber-50'>
+      <section className='py-16 bg-neutral-950 text-amber-50'>
         <div className='max-w-7xl mx-auto grid place-items-start grid-cols-1'>
           <div className='mb-3 border border-amber-500 bg-amber-600/20 px-3 py-1 rounded-full text-gray-300'>مميز</div>
           <h2 className='text-center mb-3 text-6xl font-bold'>مقالات مختارة</h2>
@@ -26,8 +26,11 @@ export default function Home() {
             <h3 className='text-xl text-gray-500'>محتوى منتقى لبدء رحلة تعلمك</h3>
             <CapsulLink to="/blog" text="عرض الكل" className="bg-linear-to-l primary-color px-3 py-2 hover-effect" />
           </div>
-          <div className='grid grid-cols-1'>
-            <ArticleCard/>
+          <div className='grid grid-cols-1 gap-6'>
+
+            {posts.slice(0, 3).map((post) => (
+              <ArticleCard key={post.id} image={post.image} title={post.title} id={post.id} />
+            ))}
           </div>
         </div>
       </section>
