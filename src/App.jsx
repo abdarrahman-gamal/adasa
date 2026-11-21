@@ -6,6 +6,7 @@ import About from './pages/About/About'
 import MainLayout from './layouts/MainLayout'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import Article from './pages/Article/Article'
 
 function App() {
 
@@ -25,7 +26,8 @@ function App() {
       path: '/', element: <MainLayout />, children: [
         { path: '/', element: <Home posts={items} /> },
         { path: 'blog', element: <Blog posts={items} /> },
-        { path: 'about', element: <About /> }
+        { path: 'about', element: <About /> },
+        { path: 'blog/:id', element: <Article posts={items} /> }
       ]
     }
   ],
