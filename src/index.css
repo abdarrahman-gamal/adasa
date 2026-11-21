@@ -1,4 +1,12 @@
 @import "tailwindcss";
+
+@utility primary-color {
+    @apply from-orange-600 to-orange-400;
+}
 .active {
-    @apply bg-linear-to-l from-blue-600 to-emerald-400;
+    @apply bg-linear-to-l primary-color;
+}
+
+.hover-effect {
+    @apply top-0 hover:-top-1 relative duration-300 transition-all
 }
