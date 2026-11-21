@@ -16,7 +16,10 @@ function App() {
         { path: 'about', element: <About /> }
       ]
     }
-  ])
+  ],
+    {
+      basename: import.meta.env.BASE_URL
+    })
 
   return (
     <>
